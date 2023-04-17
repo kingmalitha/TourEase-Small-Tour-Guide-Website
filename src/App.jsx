@@ -1,7 +1,13 @@
 import React from "react";
 
+import TopBar from "./components/TopBar";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <TopBar />
+    </>
+  );
 };
 
 export default App;
