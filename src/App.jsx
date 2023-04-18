@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Activities from "./components/Activities";
 import Booking from "./components/Booking";
 import Gallery from "./components/Gallery";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Activities />
       <Booking />
       <Gallery />
+      <Contact />
     </>
   );
 };
