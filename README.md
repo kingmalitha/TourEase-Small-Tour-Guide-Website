@@ -24,11 +24,12 @@ Plan your dream vacation to Sri Lanka with TourEase! Our platform offers a hassl
 1. Clone the repository: `https://github.com/kingmalitha/TourEase-Small-Tour-Guide-Website.git`
 2. Navigate to the project directory: `cd tourease`
 3. To install packages use `npm install`
-4. Then run `npm run dev` and visit on `localhost:5173`
+4. Create `.env` file and add 'VITE_DATABASE_URL=' and place your firebase database URL
+5. Then run `npm run dev` and visit on `localhost:5173`
 
 ## Screenshots
 
-![Homepage](/img4markdown/homepage.png "Homepage")
+![Homepage](/img4markdown/Homepage.png "Homepage")
 
 ![Deals](/img4markdown/Deals.png "Deals")
 
