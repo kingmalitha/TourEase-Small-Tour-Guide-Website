@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { BsChatSquareDots } from "react-icons/bs";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaTwitter,
@@ -14,9 +13,24 @@ const NavBar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 0) {
+      navbar.classList.add("top-0");
+      navbar.classList.remove("top-15");
+    } else {
+      navbar.classList.remove("top-0");
+      navbar.classList.add("top-15");
+    }
+  });
 
   return (
-    <div className="w-full min-h-[50px] flex justify-between items-center absolute z-10 text-white bg-gray-700/80">
+    // <div className="w-full min-h-[50px] flex justify-between items-center z-10 absolute text-white bg-gray-700/80">
+    <div
+      id="navbar"
+      className="w-full min-h-[50px] flex justify-between items-center z-10 fixed top-15 left-0 text-white bg-gray-700/80"
+    >
       <ul className="hidden sm:flex px-4">
         <li>
           <a href="/">Home</a>
