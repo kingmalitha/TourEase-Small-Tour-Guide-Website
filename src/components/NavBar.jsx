@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FaFacebookF,
   FaTwitter,
@@ -13,24 +13,44 @@ const NavBar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
-  const navbar = document.getElementById("navbar");
+  // const navbar = document.getElementById("navbar");
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 0) {
-      navbar.classList.add("top-0");
-      navbar.classList.remove("top-15");
-    } else {
-      navbar.classList.remove("top-0");
-      navbar.classList.add("top-15");
-    }
-  });
+  // window.addEventListener("scroll", () => {
+  //   if (window.pageYOffset > 0) {
+  //     navbar.classList.add("top-0");
+  //     navbar.classList.remove("top-15");
+  //   } else {
+  //     navbar.classList.remove("top-0");
+  //     navbar.classList.add("top-15");
+  //   }
+  // });
+  const navbarRef = useRef(null);
+
+  useEffect(() => {
+    const navbar = navbarRef.current;
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        navbar.classList.add("top-0");
+        navbar.classList.remove("top-15");
+      } else {
+        navbar.classList.remove("top-0");
+        navbar.classList.add("top-15");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     // <div className="w-full min-h-[50px] flex justify-between items-center z-10 absolute text-white bg-gray-700/80">
     <div
-      id="navbar"
+      ref={navbarRef}
       className="w-full min-h-[50px] flex justify-between items-center z-10 fixed top-15 left-0 text-white bg-gray-700/80"
     >
+      {/* <div id="navbar" className="w-full min-h-[50px] flex justify-between
+      items-center z-10 fixed top-15 left-0 text-white bg-gray-700/80" > */}
       <ul className="hidden sm:flex px-4">
         <li>
           <a href="/">Home</a>
@@ -51,7 +71,6 @@ const NavBar = () => {
         <FaGooglePlusG className="mx-4" />
         <FaInstagram className="mx-4" />
       </div>
-
       {/* HAMBURGER ICON */}
       <div className="sm:hidden z-10" onClick={handleNav}>
         <FaBars size={20} className="mr-4 cursor-pointer" />
@@ -80,7 +99,6 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-
       {/* MOBILE MENU END */}
     </div>
   );
