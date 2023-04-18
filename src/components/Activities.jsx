@@ -25,7 +25,7 @@ const Activities = () => {
       </div>
       <div className="relative p-4 h-[400px]">
         <h3 className="absolute z-15 top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 text-white text-2xl font-bold">
-          Resorts
+          Excursions
         </h3>
         <img
           className="w-full h-full object-cover relative border-4 border-white shadow-lg"
